@@ -1,10 +1,37 @@
+/**
+ * @file main.c
+ * @brief This file is the main entry point for program execution. It parses command line input
+ * and prints a series of ASCII tables / ASCII representation based on the input from
+ * the commands line.
+ * 
+ * Course: CPE2600
+ * Section: 011
+ * Assignment: Lab 4 - Printing to the Console
+ * Name: Matthew Korfhage
+ * 
+ * Algorithm:
+ *  - Retrieve the token from the command line arguments
+ *    - Ensure the token is valid
+ *  - Based on input options choose between printing radixes of token or printing table
+ *  - Print specified ouput to console
+ *  -
+
+ *  -
+ */
+
 #include "asciiformatter.h"
 #include "inputparsingoptions.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-
+/**
+ * @brief Parses program input from command console
+ * @param numTokens The number of inputs
+ * @param tokenArray Buffer where inputs are held
+ * @return Parser result with packaged info to feed to switch statement
+ * @return PARSE_ERROR if input is invalid.
+ */
 static PARSER_COMMAND_PKG parseInput( int numTokens, char *tokenArray[] ) {
 
     PARSER_COMMAND_PKG result;
@@ -24,7 +51,9 @@ static PARSER_COMMAND_PKG parseInput( int numTokens, char *tokenArray[] ) {
     return result;
 }
 
-
+/**
+ * @brief Prints error message from parser
+ */
 static void printParsingArgsError( void ) {
     puts(PARSING_ERROR_TERMINAL_MSG);
 }

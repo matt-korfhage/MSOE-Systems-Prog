@@ -1,16 +1,34 @@
+/**
+ * @file asciiformatter.c
+ * @brief This file is the library for printing ASCII tables based on
+ * a specific amount of columns or based on the input of a character
+ * token, printing out the multiple representations of the token.
+ * 
+ * Course: CPE2600
+ * Section: 011
+ * Assignment: Lab 4 - Printing to the Console
+ * Name: Matthew Korfhage
+ */
+
+
+#include "asciiformatter.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "asciiformatter.h"
+
 
 static const char *controlMnemonics[] = {
     "NUL", "SOH", "STX", "ETX", "EOT", "ENQ", "ACK", "BEL", "BS", "TAB", "LF", "VT", "FF", "CR", "SO", "SI",
     "DLE", "DC1", "DC2", "DC3", "DC4", "NAK", "SYN", "ETB", "CAN", "EM", "SUB", "ESC", "FS", "GS", "RS", "US"
 };
 
-
+/**
+ * @brief Converts non-printable ASCII characters to their mnemonic values
+ * @param token Non-printable ASCII character to get mnemonic from
+ * @param mnemonic output buffer for mnemonic string to be stored
+ */
 static void getMnemonicPrintable( char token, char * mnemonic ) {
 
     // Check if token is a non-printable ASCII character. If yes store mnemonic.
@@ -26,7 +44,11 @@ static void getMnemonicPrintable( char token, char * mnemonic ) {
     } 
 }
 
-
+/**
+ * @brief Converts non-printable ASCII characters to their binary values
+ * @param token Non-printable ASCII character to get binary of
+ * @param mnemonic output buffer for binary string to be stored
+ */
 static void getBinaryRep( char token, char binaryRep[BITS_IN_BYTE] ) {
 
     // Extract binary rep by grabbing each bitwise section of number
@@ -40,7 +62,10 @@ static void getBinaryRep( char token, char binaryRep[BITS_IN_BYTE] ) {
 
 }
 
-
+/**
+ * @brief Prints a standard ASCII table with decimal, hex, and mnemonic symbols
+ * @param numCols number of columns in the table to print
+ */
 void printASCIITableCols( int numCols ) {
     
     // Write headers for tables with columns
@@ -102,6 +127,10 @@ void printASCIITableCols( int numCols ) {
     
 }
 
+/**
+ * @brief Prints decimal, hex, and binary rep of character to std output
+ * @param token character to print
+ */
 void printRadixes( char token ) {
 
     char binaryRep[BITS_IN_BYTE];

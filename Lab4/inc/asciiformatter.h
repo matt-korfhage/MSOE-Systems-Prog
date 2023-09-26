@@ -1,6 +1,7 @@
 #ifndef ASCIIFORMATTER_H
 #define ASCIIFORMATTER_H
 
+// Necessary defines here, names self-documenting
 #define NUM_ASCII_CHARACTERS 0x7F
 #define TABLE_TOKEN_WIDTH    0x05
 #define BITS_IN_BYTE         0x08

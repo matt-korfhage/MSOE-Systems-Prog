@@ -6,6 +6,9 @@
 #define MAX_INPUT_LENGTH 500
 #define MAX_APPEND_AMOUNT 10
 
+/**
+ * @brief Different results from parser to generate a result based on command lne input
+ */
 typedef enum {
 
     PRINT_TABLE_DEFAULT,
@@ -15,6 +18,12 @@ typedef enum {
 
 } PARSER_RESULT;
 
+/**
+ * @brief Struct that holds all possible data values and parsing results
+ * @property parseResult - the result of the parsing process
+ * @property numTableColsToPrint - number of columns in the ASCII table to print
+ * @property badToken - the most recently parsed input taken that threw an error
+ */
 typedef struct {
     
     PARSER_RESULT parseResult;
